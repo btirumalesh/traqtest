@@ -1,0 +1,35 @@
+<div ng-controller="productSpecificationCtrl" class="productContent">
+    <div class="productSpecSubMenu">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <!--        <a ui-sref="productSpec.storageDistribution">Storage</a>
+                        <a ui-sref="productSpec.Associations">Associations</a>-->
+
+
+                <ul id="productSpecUL">
+                    <li> <span ng-show="!submenuRevealed"><i class="fa fa-angle-double-right fa-2x pull-right"  aria-hidden="true" ng-click="revealSubmenu(this)"></i></span>
+                        <span ng-show="submenuRevealed"><i class="fa fa-angle-double-left fa-2x pull-right" ng-show="submenuRevealed" ng-hide="!submenuRevealed" aria-hidden="true" ng-click="closeSubmenu(this)"></i></span>
+                    </li>
+                    <li ui-sref="productSpec.Associations"><span><i class="fa fa-chain-broken" aria-hidden="true"></i></span><span>Associations</span></li>
+                    <li><span><i class="fa fa-info" aria-hidden="true"></i></span><span>Product Details</span></li>
+                    <li ui-sref="productSpec.storageDistribution"><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Storage &<br/>Distribution</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Recipe &<br/>Ingredients</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Preparation &<br/>Cooking</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Nutrition</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Allergens &<br/>Sensitive Data</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Icons & Claims</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Process Controls</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Finished Product<br/>Standards</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Packaging</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Attachments</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Pack Copy</span></li>
+                    <li><span><i class="fa fa-archive" aria-hidden="true"></i></span><span>Approval <br/>Processing</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="subContentBg" ui-view="ProductSubContents">
+
+    </div>
+</div>

@@ -1,0 +1,384 @@
+<div ng-controller="nsfTraqtion_addNewUserCtrl" class="formContent addPadding15 innersearchProduct addUser">
+
+    <div kendo-window="successMsgWin" k-visible="false" k-modal="true">
+        <div class="row padding0 margin0 addPadding30">
+            <div class="col-sm-12 col-md-12 padding0 margin0 text-center">
+                {{successMsg}}
+            </div>
+        </div>
+        <div class="row padding0 margin0  addPadding15">
+            <div class="col-sm-6 col-md-6 padding0 margin0 text-right">
+                <div class="btn btn-primary addMarginR10" ng-click="addUserConfirm()">Confirm</div>
+            </div>
+            <div class="col-sm-6 col-md-6 padding0 margin0 text-left">
+                <div class="btn btn-primary addMarginL10" ng-click="addUserCancel()">Cancel</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add New User Section - Title Begin Here -->
+    <div class="row searchHeading margin0">
+        <!-- <div class="col-xs-6 col-md-6 padding0">
+            <span class="padding0 tableHeadings">Add New User</span>
+        </div>
+
+        <div class="col-xs-6 col-md-6 text-right padding0">
+            <button class="btn btn-sm btnNSF" title="invite new user" ng-click="validate($event)">Invite New User</button>
+        </div> -->
+
+        <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+            <p class="sectionTitle">Add New User</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+            <button id="btn_addnewUser" ng-click="validate($event)" class="k-primary btn_primary kendoBtn">Invite New User</button>
+        </div>
+    </div>
+    <!-- Add New User Section - Title End Here -->
+
+    <!-- Add New User Section Begin Here -->
+    <div class="row searchBox margin0">
+        <div class="col-sm-12 col-md-12 innerHeaderHead searchBoxTitle addPaddingL10">
+            <h4>User Details</h4>
+        </div>
+        <div class="col-sm-12 col-md-12 padding10">
+            <form name="frmSearch" id="frmSearch" method="POST" kendo-validator="validator" ng-submit="validate($event)">
+
+                <!-- ROW 1 -->
+                <div class="row addPaddingBottom margin0">                                
+                    <div class="col-sm-6 col-md-3 addPaddingBottomIpad text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="firstName">First Name: </label><span class="required">*</span>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="text" name="firstName" id="firstName" ng-model="user.firstName" required validationMessage="Enter {0}"  />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 addPaddingBottomIpad text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="middleName">Middle Name: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="text" name="middleName" id="middleName" ng-model="user.middleName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="lastName">Last Name: </label><span class="required">*</span>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="text" name="lastName" id="lastName" ng-model="user.lastName" required validationMessage="Enter {0}" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-4 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="cboJobTitle">Job Title: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-8 padding0">
+                                <!-- <select name="cboJobTitle" id="cboJobTitle" class="comboBox" ng-options="jobTitle.title for jobTitle in jobTitles" ng-model="selected"></select> -->
+                                <!--<select kendo-multi-select k-options="jobTitles" k-ng-model="selected" k-value-primitive="false"></select>-->
+                                <select name="cboJobTitle" id="cboJobTitle" class="text-left" kendo-drop-down-list k-ng-model="JobTitleList" ng-model="user.jobTitleId.id" k-options="JobTitleList" k-value-primitive="false"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="row addPaddingBottom margin0">
+                    <div class="col-sm-6 col-md-3 addPaddingBottomIpad text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="email">Email: </label><span class="required">*</span>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="email" name="emailId" id="emailId" class="k-textbox emailKendo" ng-model="user.emailId" required data-email-msg="Email format is not valid" />
+                            </div>
+                        </div>                                
+                    </div>
+                    <div class="col-sm-6 col-md-3 addPaddingBottomIpad text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="officeNo">Office #: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="text" name="officeNo" id="officeNo" ng-model="user.workPhone" maxlength="15" pattern="\d*" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="mobileNo">Mobile #: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0">
+                                <input type="text" name="mobileNo" id="mobileNo" ng-model="user.mobilePhone" maxlength="15" pattern="\d*" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-4 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="userStatus">Status: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-8 text-left padding0">
+                                <div class="searchlabel" name="userStatus" id="userStatus">{{user.statusCodes}}</div>
+                            </div>
+                        </div>
+                    </div>                                
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="row addPaddingBottom margin0" style="display: none;">
+                    <div id="clientAdminSupplierServiceProvider">
+                        <div class="col-sm-12 col-md-3 padding0 text-right">
+                            <div class="row margin0">
+                                <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                    <label class="searchlabel"  for="cboCompanyType">Company Type: </label>
+                                </div>
+                                <div class="col-sm-3 col-md-7 padding0">
+                                    <select name="cboCompanyType" id="cboCompanyType" class="text-left" kendo-drop-down-list k-options="CompanyTypeList" k-ng-model="selectedCompanyType" ng-model="user.companyTypeId" k-value-primitive="false" ng-change="selectCompany()"></select>
+                                </div>
+                                <div class="col-sm-3"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 padding0 text-right">
+                            <div id="clientAdminSupplier" class="row margin0" ng-show="showSupplier">
+                                <div class="col-sm-12 col-md-6 padding0 text-right">
+                                    <div class="row margin0">
+                                        <div class="col-sm-12 col-md-12 padding0 text-right">
+                                            <div class="row margin0">
+                                                <div class="col-sm-12 col-md-12 padding0">
+                                                    <div class="row margin0">
+                                                        <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                                            <label class="searchlabel"  for="cboSupplierName">Supplier Name: </label>
+                                                        </div>
+                                                        <div class="col-sm-3 col-md-7 padding0">
+                                                            <select name="cboSupplierName" id="cboSupplierName" class="text-left" kendo-drop-down-list k-options="SupplierList" k-ng-model="selectedSuplier" ng-model="user.supplierId.id" k-value-primitive="false"></select>
+                                                        </div>
+                                                        <div class="col-sm-3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6 padding0 text-right">
+                                    <div class="row margin0">
+                                        <div class="col-sm-12 col-md-12 padding0 text-right">
+                                            <div class="row margin0">
+                                                <div class="col-sm-12 col-md-12 padding0">
+                                                    <div class="row margin0">
+                                                        <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                                            <label class="searchlabel"  for="cboFacility">Facility: </label>
+                                                        </div>
+                                                        <div class="col-sm-3 col-md-7 padding0">
+                                                            <select name="cboFacility" id="cboFacility" class="text-left" kendo-drop-down-list k-options="FacilityList" k-ng-model="selectedFacility" ng-model="user.supplierfacilityList" k-value-primitive="false"></select>
+                                                        </div>
+                                                        <div class="col-sm-3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="clientAdminServiceProvider" class="row margin0"  ng-show="showServiceProvider">
+                                <div class="col-sm-12 col-md-6 padding0 text-right">
+                                    <div class="row margin0">
+                                        <div class="col-sm-12 col-md-12 padding0">
+                                            <div class="row margin0">
+                                                <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                                    <label class="searchlabel"  for="cboServiceProviderName">Service Provider Name: </label>
+                                                </div>
+                                                <div class="col-sm-3 col-md-7 padding0">
+                                                    <select name="cboServiceProviderName" id="cboServiceProviderName" class="text-left" kendo-drop-down-list k-options="ServiceProviderList" k-ng-model="selectedServiceProvider" ng-model="user.serviceProviderId.id" k-value-primitive="false"></select>
+                                                </div>
+                                                <div class="col-sm-3"></div>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                                <div class="col-sm-12 col-md-6 padding0 text-right">
+                                    <div class="row margin0">
+                                        <div class="col-sm-12 col-md-12 padding0 text-right">
+                                            <div class="row margin0">
+                                                <div class="col-sm-12 col-md-12 padding0">
+                                                    <div class="row margin0">
+                                                        <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                                            <label class="searchlabel"  for="cboServiceType">Service Type: </label>
+                                                        </div>
+                                                        <div class="col-sm-3 col-md-7 padding0">
+                                                            <select name="cboServiceType" id="cboServiceType" class="text-left" kendo-drop-down-list k-options="ServiceTypeList" k-ng-model="selectedServiceType" ng-model="user.serviceProviderList" k-value-primitive="false"></select>
+                                                        </div>
+                                                        <div class="col-sm-3"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3 padding0 text-right"></div>
+                    </div>
+                </div>
+
+
+                <!-- ROW 4 -->
+                <div class="row addPaddingBottom margin0">
+                    <div class="col-sm-12 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="cboUserRole">Role: </label><span class="required">*</span>
+                            </div>
+                            <div class="col-sm-3 col-md-7 padding0">
+                                <select name="cboUserRole" id="cboUserRole" class="text-left" kendo-multi-select k-options="UserRoleList" k-ng-model="UserRoleList" ng-model="user.rolesList" k-value-primitive="false"  required validationMessage="Select Role"></select>
+                            </div>
+                            <div class="col-md-3 padding0 text-right"></div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 text-right padding0">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                <label class="searchlabel"  for="cboLanguage">Language: </label>
+                            </div>
+                            <div class="col-sm-3 col-md-7 padding0">
+                                <select name="cboLanguage" id="cboLanguage" class="text-left" kendo-drop-down-list k-options="LanguageList" k-ng-model="selectedLanguage" ng-model="user.languageId.id" k-value-primitive="false"></select>
+                            </div>
+                            <div class="col-md-3 padding0 text-right"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 padding0"></div>
+                </div>
+
+
+                <!-- ROW 5 -->
+                <div class="row addPaddingBottom margin0">
+                    <div class="col-sm-12 col-md-3 padding0 text-right">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-8 padding0 addPaddingR14 text-right">
+                                <label class="searchlabel labelMT0"  for="inviteNow">Send Invitation to Register: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-4 padding0 text-right">
+                                <div class="row margin0">
+                                    <div class="col-sm-4 col-md-6 text-left padding0">
+                                        <input type="radio" name="invite" id="inviteNow" value="yes" ng-checked="true" ng-model="user.invite" />&nbsp;Yes
+                                    </div>
+                                    <div class="col-sm-4 col-md-6 text-left padding0">
+                                        <input type="radio" name="invite" id="inviteLater" value="no" ng-checked="false" ng-model="user.invite" />&nbsp;No
+                                    </div>
+                                    <div class="col-sm-offset-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 padding0 text-right">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-8 padding0 addPaddingR14 text-right">
+                                <label class="searchlabel labelMT0"  for="tempAccessYes">Assign a Temporary Access: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-4 padding0">
+                                <div class="row margin0">
+                                    <div class="col-sm-4 col-md-6 text-left padding0">
+                                        <input type="radio" name="tempAccess" id="tempAccessYes" value="yes" ng-checked="false" ng-model="user.assignTemporaryTo" />&nbsp;Yes
+                                    </div>
+                                    <div class="col-sm-4 col-md-6 text-left padding0">
+                                        <input type="radio" name="tempAccess" id="tempAccessNo" value="no" ng-checked="true" ng-model="user.assignTemporaryTo" />&nbsp;No
+                                    </div>
+                                    <div class="col-sm-offset-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-3 padding0 text-right">
+                        <div class="row margin0">
+                            <div class="col-sm-6 col-md-5 padding0 addPaddingR14 text-right">
+                                <label class="searchlabel"  for="tempAccessPeriod">Access Until: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-7 padding0 text-right">
+                                <div class="row margin0">
+                                    <div class="col-sm-6 col-md-12 padding0 text-right kui-calendar">
+                                        <!-- <input type="text" name="tempAccessPeriod" id="tempAccessPeriod" /> -->
+                                        <input name="tempAccessPeriod" id="tempAccessPeriod" kendo-date-picker
+                                               ng-model="dateString"
+                                               k-ng-model="dateObject"
+                                               style="width: 100%;" />
+                                    </div>
+                                    <div class="col-sm-6 padding0 text-right">
+                                        <!-- <span id="calendar" onClick="showCalendar();" class="glyphicon glyphicon-calendar calendarHover"></span> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 padding0 text-right"></div>
+                </div>
+
+
+                <!-- ROW 6 -->
+
+                <div class="row addPaddingBottom margin0">                        
+                    <div class="col-sm-12 col-md-6 padding0 text-right">
+                        <div id="TraQtionAdmin">
+                            <div class="row addPaddingBottom margin0">
+                                <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                    <label class="searchlabel"  for="cboBusiness">Assign Business(s): </label>
+                                </div>
+                                <div class="col-sm-3 col-md-7 padding0">
+                                    <select name="cboBusiness" id="cboBusiness" class="text-left" kendo-drop-down-list k-options="BusinessList" k-ng-model="selectedBusiness" ng-model="user.businessList" k-value-primitive="false"></select>
+                                </div>
+                                <div class="col-sm-3 padding0"></div>
+                            </div>
+
+                            <div class="row margin0">
+                                <div class="col-sm-12 col-md-12 padding0 text-right">
+                                    <div class="row margin0">
+                                        <div class="col-sm-6 col-md-5 padding0 addPaddingR14">
+                                            <label class="searchlabel"  for="cboCategory">Assign Category(s): </label>
+                                        </div>
+                                        <div class="col-sm-3 col-md-7 padding0">
+                                            <select name="cboCategory" id="cboCategory" class="text-left" kendo-drop-down-list k-options="CategoryList" k-ng-model="selectedCategory" ng-model="user.categoriesList" k-value-primitive="false"></select>
+                                        </div>
+                                        <div class="col-sm-3 padding0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 padding0 text-right"></div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- Add New User Section End Here -->
+</div>
+
+
+
+
+<script>
+    $(document).ready(function () {
+        //$(input[type=text]).kendoMaskedTextBox();
+        $(":text").kendoMaskedTextBox();
+        $(".comboBox").kendoComboBox();
+    });
+
+    function showCalendar()
+    {
+        $("#calendar").kendoCalendar();
+    }
+
+
+</script>
+
+

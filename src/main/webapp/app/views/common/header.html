@@ -1,0 +1,89 @@
+<!-- <header ng-if="headerFile == 'loginHeader'">
+	<div>
+		<img src="images/traqtionLogo.png" alt="" width="260px" height="24px">
+	</div>
+</header>
+<header ng-if="headerFile == 'mainHeader'">-->
+<header>
+    <div class="row clear-padding clear-margin">
+        <a class="navbar-brand" href="#"><img src="images/traqtionLogo.png" alt="txt"></a>
+        <div class="pull-right user_tr_section">
+            <a href="javascript:void(0);" class="pull-left user_prof_icon marginLR5"><img src="images/user.png" alt="" /></a>
+            <p class="pull-right">
+                <span class="marginLR5">Hello,<a href="javascript:void(0);"> John Smith</a></span><br/>
+                <a href="javascript:void(0);" class="marginLR5">Settings</a>|<a href="javascript:void(0);" class="marginLR5">Logout</a>
+            </p>
+        </div>
+        <div class="pull-right sticky_links">
+            <a href="javascript:void(0);" ui-sref="dashboard"><img src="images/icon-home.png" height="25" alt="" /></a>
+            <a href="javascript:void(0);"><img src="images/icon-clientList.png" height="25" alt="" /></a>
+            <a href="javascript:void(0);"><img src="images/icon-language.png" height="25" alt="" /></a>
+            <a href="javascript:void(0);"><img src="images/icon-notification.png" height="25" alt="" /></a>
+        </div>
+    </div>
+    <div class="row clear-padding clear-margin banner-img">
+        <div class="top_search pull-right">
+            <span class="k-textbox k-space-right">
+                <input type="text" id="icon-right"/>
+                <a href="#" class="k-icon k-i-search">&nbsp;</a>
+            </span>
+        </div>
+    </div>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid clear-margin clear-padding">
+            <div class="navbar-header clear-margin">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="true" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse" aria-expanded="false">
+                <ul class="nav navbar-nav">
+                    <li><a href="javascript:void(0);"><img src="images/forklift-truck.png" alt="SUPPLIERS" height="20" width="proportional" />SUPPLIERS</a></li>
+					<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/open-carton-box.png" alt="PRODUCTS" height="20" width="proportional" />PRODUCTS</a>
+                        <ul class="dropdown-menu" style="">
+                            <li class=""><a ui-sref="searchProducts">search</a></li>
+                            <li class=""><a ui-sref="productSpec.createProductSpecification" ui-sref-opts="{reload:true}">create new primary specification</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);"><img src="images/navicon-sites.png" alt="SITES" height="20" width="proportional" />SITES</a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/navicon-serviceprovider.png" alt="SERVICE PROVIDERS" height="20" width="proportional" />SERVICE PROVIDERS</a>
+                        <ul class="dropdown-menu" style="">
+                            <li class=""><a href="#">search</a></li>
+                            <li class=""><a href="#">create new primary specification</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="javascript:void(0);"><img src="images/icon-notification.png" alt="NOTIFICATIONS" height="20" width="proportional" />NOTIFICATIONS</a></li>
+                    <li><a href="javascript:void(0);"><img src="images/navicon-reports.png" alt="REPORTS" height="20" width="proportional" />REPORTS</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown"><img src="images/navicon-admin.png" alt="ADMINISTRATION" height="20" width="proportional" />ADMINISTRATION</a>
+                        <ul class="dropdown-menu">
+                            <li class=""><a ui-sref="clientInfo">Company Info</a></li>
+                            <li class=""><a ui-sref="adminUsers">Users</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><img src="images/navicon-serviceprovider.png" alt="USERS" height="20" width="proportional" />USERS</a>
+                        <ul class="dropdown-menu" style="">
+                            <li class=""><a href="#">Search</a></li>
+                            <li class=""><a href="#/adduser">Add New User</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<script>
+    $(document).ready(function () {
+        $('ul.nav li.dropdown').hover(function () {
+            $(this).find('.dropdown-menu').stop(true, true).css('display', 'flex').delay(200).fadeIn(500);
+        }, function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+    });
+</script>

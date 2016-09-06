@@ -1,0 +1,102 @@
+.innerPageWithActionMenu {
+    padding-left: 60px;
+}
+.innerPageWithoutActionMenu {
+    padding-left: 20px;
+}
+.innerPageWithActionMenu .rightContent, .innerPageWithoutActionMenu .rightContent{
+    background: #fff;
+    margin-top: 40px;
+    border-top-left-radius: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /*-webkit-box-shadow: -1px -6px 31px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -6px 31px -2px rgba(0,0,0,0.75);
+    box-shadow: -6px -6px 18px -2px rgba(0,0,0,0.75);*/
+}
+.innerHeadBox, .innerBox{
+    border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow: hidden;
+}
+.innerHeaderHead{
+    background: -moz-linear-gradient(270deg, #d9d9d9 30%, #afafaf 90%); /* ff3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(30%, #d9d9d9), color-stop(90%, #afafaf)); /* safari4+,chrome */
+    background: -webkit-linear-gradient(270deg, #d9d9d9 30%, #afafaf 90%); /* safari5.1+,chrome10+ */
+    background: -o-linear-gradient(270deg, #d9d9d9 30%, #afafaf 90%); /* opera 11.10+ */
+    background: -ms-linear-gradient(270deg, #d9d9d9 30%, #afafaf 90%); /* ie10+ */
+    background: linear-gradient(180deg, #d9d9d9 30%, #afafaf 90%); /* w3c */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9d9d9', endColorstr='#afafaf',GradientType=0 ); /* ie6-9 */
+}
+.innerBox .innerHeaderHead{
+    background: none;
+    border-top: 1px solid #ccc;
+    border-bottom: 2px solid #999;
+}
+.innerHeadBox .innerBox label {
+    line-height: 27px;
+}
+.form-horizontal .form-group{margin-left: 0 !important; margin-right: 0 !important}
+.innerHeaderHead i{
+    padding: 10px 10px 10px 5px;
+    color:#333;
+}
+.productSpecSubMenu{
+    position: absolute;
+    left: 0;
+    background: transparent;
+    width: 200px;
+    overflow-y: hidden;
+    padding-right: 10px;
+    z-index: 1;
+}
+i{
+    color: white;
+    cursor: pointer;
+}
+#productSpecUL{
+    list-style: none;    
+    background: transparent;
+    width:100%;
+    padding-left: 0;
+}
+#productSpecUL .active{
+    background:#fff !important;
+}
+#productSpecUL .activeMenu{
+    color:#362C23 !important;
+}
+#productSpecUL li{
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+    border-top: 1px solid #fff;
+    cursor: pointer;
+    background: #BAC425;
+    width:60px;
+}
+#productSpecUL li:last-child{
+    border-bottom: 1px solid #fff;
+}
+#productSpecUL li span:nth-child(2){
+    padding-left: 10px;
+    font-size: 11px;
+    color:white;
+    font-weight: bolder;
+    white-space: nowrap;
+}
+#productSpecUL li span:nth-child(1){
+    width: 40px;
+    text-align: center;
+}
+#productSpecUL li:not(:first-child):hover span, #productSpecUL li:not(:first-child):hover span i {
+    color: #333;
+}
+#productSpecUL li:not(:first-child):hover {
+    background: #fff;
+    box-shadow: 1px 0px 10px #999;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}

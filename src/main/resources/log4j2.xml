@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="log-path">${sys:catalina.home}/logs</Property>
+    </Properties>
+    <Appenders>
+        <Console name="console-log" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n"/>
+        </Console>
+        <RollingFile name="debug-log" fileName="${log-path}/nsftraqtiondebug.log"
+                     filePattern="${log-path}/nsftraqtiondebug-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                 <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+        </RollingFile>
+        <RollingFile name="error-log" fileName="${log-path}/nsftraqtionerror.log"
+                     filePattern="${log-path}/nsftraqtionerror-%d{yyyy-MM-dd}.log">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                 <SizeBasedTriggeringPolicy size="10 MB" />
+            </Policies>
+        </RollingFile>
+    </Appenders>
+    	<Loggers>
+		
+        <Root level="ALL" additivity="false">
+            <AppenderRef ref="console-log"/>
+            <appender-ref ref="error-log" level="error" />
+            <appender-ref ref="debug-log" />
+        </Root>
+    </Loggers>
+</Configuration>
+

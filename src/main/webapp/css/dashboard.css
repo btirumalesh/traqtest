@@ -1,0 +1,68 @@
+.portlet .panel-heading > span {
+	font-size: 16px;
+	font-family: "Montserrat-bold";
+	display:block;
+	text-transform: capitalize;
+}
+.portlet {
+	margin-bottom: 20px;
+	padding: 0 10px;
+}
+.head_icon{
+	height: 37px;
+	width: 42px;
+	background: red;
+	display: block;
+	position: absolute;
+	top: 20px;
+}
+.portlet a{text-decoration:underline;}
+.portlet-group .panel{
+	border-color:#585f29;
+	border-radius:10px;
+	-webkit-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px 3px 10px 0px rgba(0,0,0,0.75);
+	height: 250px;
+}
+.panel-default>.panel-heading{
+	background:none;
+	border-bottom:1px solid #585f29;
+}
+.panel-body .list-unstyled{
+	
+}
+.panel-body .list-unstyled li{
+	
+}
+.panel-body .list-unstyled .list-group-item {
+	border: none;
+	padding: 5px 0;
+}
+.panel-body .list-unstyled .list-group-item a{
+	line-height:16px;
+	color: #333;
+}
+.portlet-group .panel+.panel{margin-top:0}
+.portlet .panel-heading{
+	position: relative;
+}
+.portlet .panel-heading span.icon {
+    position: absolute;
+    top: 19px;
+    background: #fff;
+    padding: 0 3px;
+    left: 10px;
+    max-width: 40px;
+}
+.action_icons a{display:inline-block}
+.portlet .panel-body .glyphicon{
+	margin-right:6px;
+}
+.portlet .panel-body .glyphicon-remove-sign{
+	color:red;
+}
+.view_all{
+	font-family: "Montserrat-bold";
+	font-size:14px;
+}

@@ -1,0 +1,302 @@
+<style type="text/css">
+    body { color: #666; }
+    .searchHeading { padding: 5px 0; }
+    .searchBox { border-radius: 5px; border: 1px solid #AEAEAE; padding-bottom: 15px; }
+    .searchBoxTitle { background-color: #045695; border-radius: 5px 5px 0 0; margin-bottom: 10px; }
+    .searchBoxTitle h4 { color: #FFF; }
+    .searchlabel { font-weight: 100; }
+    .noPadding { padding: 0; }
+    .noPaddingL0 { padding-left: 0; }
+    .noMargin { margin: 0 !important; }
+    .addPaddingTop { padding-top: 15px; }
+    .addPaddingR14 { padding-right: 14px; }
+    .addPaddingR30 { padding-right: 30px; }            
+    .rowPaddingBottom { padding-bottom: 10px; }
+    .btnGreen { background-color: #3FA0AD; }
+    .btnNSF { background-color: #362C23; color: #FFF; }
+    .btnNSF:hover { background-color: #957A61; color: #FFF; }
+    .btnFNSF { width: 100%; }
+    #fromDate, #toDate { width: 84px; }
+    .calendarHover { cursor: pointer; }
+    .tableHeadings { font-size: 18px; font-weight: bold; }            
+
+    .hrLine { border-color: #91B5D1; border-width: 2px 0 0; }
+    .searchResult { color: #045695; }
+
+    input[type=text] { width: 100%; height: 25px; }
+    select { width: 100%; height: 25px; }
+    table tr th { text-align: center; background-color: #045695; color: #FFF; }
+    a:active { color: #333; }
+    a:visited { color: #BFC842; }
+    .marginL23{margin-left: -23px;}            
+</style>
+
+    
+<div ng-controller="nsfTraqtion_searchCtrl">
+    
+    <!-- Search Title Begin Here -->
+    <div class="row searchHeading noMargin">
+        <div class="col-xs-6 col-md-6 noPadding">
+            <span class="btn noPadding tableHeadings">Search User</span>
+        </div>
+        
+        <div class="col-xs-6 col-md-6 text-right noPadding">
+            <button class="btn btn-sm btnNSF" title="add new user">Add New User</button>
+        </div>
+    </div>
+    <!-- Search Title End Here -->
+
+    <!-- Search Section Begin Here -->
+    <div class="row searchBox noMargin">
+        <div class="col-sm-12 col-md-12 searchBoxTitle">
+            <h4>Search Criteria</h4>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <form name="frmSearch" id="frmSearch" method="POST">
+                <!-- ROW 1 -->
+                <div class="row rowPaddingBottom noMargin">
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="firstName">First Name: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <input type="text" name="firstName" id="firstName" ng-model="firstName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-8 noPaddingL0">
+                                <label class="searchlabel"  for="lastName">Last Name: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-4 noPadding">
+                                <input type="text" name="lasttName" id="lastName" ng-model="lastName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="jobTitle">Job Title: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <select name="jobTitle" id="jobTitle" ng-model="jobTitle"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-4 noPaddingL0">
+                                <label class="searchlabel"  for="jobRole">Role: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-8 noPadding">
+                                <select name="jobRole" id="jobRole" ng-model="jobRole"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROW 2 -->
+                <div class="row rowPaddingBottom noMargin">
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="companyType">Company Type: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <select name="companyType" id="companyType" ng-model="companyType"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-8 noPaddingL0">
+                                <label class="searchlabel"  for="spCode">Supplier/Service Provider Code: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-4 noPadding">
+                                <input type="text" name="spCode" id="spCode" ng-model="spCode" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="contactType">Contact Type(s): </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <select name="contactType" id="contactType" ng-model="contactType"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-2 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-4 noPaddingL0">
+                                <label class="searchlabel"  for="email">Email: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-8 noPadding">
+                                <input type="text" name="email" id="email" ng-model="email" />
+                            </div>
+                        </div>                                
+                    </div>
+                </div>
+
+                <!-- ROW 3 -->
+                <div class="row rowPaddingBottom noMargin">
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="status">Status: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <select class="searchSelect" name="status" id="status" ng-model="status"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-8 noPaddingL0">
+                                <label class="searchlabel"  for="spName">Supplier/Service Provider  Name: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-4 noPadding">
+                                <input type="text" name="spName" id="spName" ng-model="spName" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-6 col-md-6 noPaddingL0">
+                                <label class="searchlabel"  for="mobileNo">Mobile: </label>
+                            </div>
+                            <div class="col-sm-6 col-md-6 noPadding">
+                                <input type="text" name="mobileNo" id="mobileNo" ng-model="mobileNo" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2"></div>
+                </div>
+
+                <!-- ROW 4 -->
+                <div class="row rowPaddingBottom noMargin">
+                    <div class="col-sm-12 col-md-7 text-right noPadding">
+                        <div class="row noMargin">
+                            <div class="col-sm-3 col-md-3 noPaddingL0 text-center">
+                                <label class="searchlabel"  for="fromDate">Last Login Date: </label>
+                            </div>
+                            <div class="col-sm-3 col-md-3 noPadding text-left marginL23">
+                                From: <input type="text" name="fromDate" id="fromDate" ng-model="fromDate" />&nbsp;<span class="glyphicon glyphicon-calendar calendarHover"></span>
+                            </div>
+                            <div class="col-sm-3 col-md-3 noPadding text-left">
+                                <label class="searchlabel"  for="spName">To: </label>&nbsp;<input type="text" name="toDate" id="toDate" ng-model="toDate" />&nbsp;<span class="glyphicon glyphicon-calendar calendarHover"></span>
+                            </div>
+                            <div class="col-md-3 noPadding text-left"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 noPadding"></div>
+                </div>
+
+                <!-- ROW 5 -->
+                <div class="row noMargin">
+                    <div class="col-sm-12 col-md-12 text-right noPadding">
+                        <a href="javascript:void(0);">Reset</a>&nbsp;&nbsp;
+                        <input type="submit" class="btn btn-sm btnNSF" value="Search" />
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- Search Section End Here -->
+
+    <hr class="hrLine"/>
+
+    <div class="row noMargin">
+        <div class="col-sm-6 col-md-8 noPadding">
+            <span class="searchResult addPaddingR14">Search Results</span> Total Search Found: 20 Results
+        </div>
+
+        <div class="col-sm-6 col-md-4 noPadding">
+            <div class="row noMargin text-right">
+                <div class="col-sm-4 col-md-4 noPadding"><button class="btn btn-sm btnNSF btnFNSF">Change Status</button></div>
+                <div class="col-sm-4 col-md-4"><button class="btn btn-sm btnNSF btnFNSF">Send Email</button></div>
+                <div class="col-sm-4 col-md-4 noPadding"><button class="btn btn-sm btnNSF btnFNSF">Export To Excel</button></div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="row noMargin addPaddingTop">
+        <div class="col-sm-12 col-md-12 noPadding text-right">
+                <div class="btn-group">
+                <button type="button" class="btn btn-sm btnNSF">Manage Columns</button>
+                <button type="button" class="btn btn-sm btnNSF dropdown-toggle" data-toggle="dropdown">
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#">First Name</a></li>
+                    <li><a href="#">Last Name</a></li>
+                    <li><a href="#">Email/User ID</a></li>
+                    <li><a href="#">Supplier Name</a></li>
+                    <li><a href="#">Job Title</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row noMargin addPaddingTop table-responsive">
+        <table class="table table-striped table-bordered table-hover table-condensed">
+            <thead class="text-center">
+                <th></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email/User ID</th>
+                <th>Supplier Name</th>
+                <th>Job Title</th>
+                <th>Status</th>
+                <th>Role(s)</th>
+                <th>Contact Type(s)</th>
+                <th>Mobile #</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>Raja</td>
+                    <td>Anbalagan</td>
+                    <td>Raja.Anbalagan@htcindia.com</td>
+                    <td>HTC</td>
+                    <td>Senior Developer</td>
+                    <td>Active</td>
+                    <td>Technologist</td>
+                    <td>Out of Hours</td>
+                    <td>605-332-4985</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>Raja</td>
+                    <td>Anbalagan</td>
+                    <td>Raja.Anbalagan@htcindia.com</td>
+                    <td>HTC</td>
+                    <td>Senior Developer</td>
+                    <td>Active</td>
+                    <td>Technologist</td>
+                    <td>Out of Hours</td>
+                    <td>605-332-4985</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" name="" id="" /></td>
+                    <td>Raja</td>
+                    <td>Anbalagan</td>
+                    <td>Raja.Anbalagan@htcindia.com</td>
+                    <td>HTC</td>
+                    <td>Senior Developer</td>
+                    <td>Active</td>
+                    <td>Technologist</td>
+                    <td>Out of Hours</td>
+                    <td>605-332-4985</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

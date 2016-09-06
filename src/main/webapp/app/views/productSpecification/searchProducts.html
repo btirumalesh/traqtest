@@ -1,0 +1,304 @@
+
+<div ng-controller="searchProductsCtrl" class="searchproductContent">
+    <div class="row height100p innersearchProduct">
+        <div class="col-lg-12 col-sm-12 col-md-12">
+            <div class="row vertical-align">
+                <div class="col-lg-6 col-md-6 col-sm-6 text-left">
+                    <p class="sectionTitle">Search Products</p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 text-right">
+                    <button id="btn_addnewSpec" ng-click="gotoAddnewSpecification()" class="k-primary btn_primary kendoBtn">Add New Specification</button>
+                </div>
+            </div>
+            <br/>
+            <div class="row silverBg">
+                <div class="col-lg-12 col-sm-12 col-md-12">
+                    <div>
+                        <p class="accordionTitle borderBottom searchCriteria">Search Criteria</p>
+
+                        <div class="row padding10 productSearchForm">
+                            <form id="productSearchForm">
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="productTitle">Product Title: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+                                            <input type="text" name="productTitle" id="productTitle" ng-model="productSearch.productTitle"   /> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="clientProductCode">Client Product Code: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+                                            <input type="text" name="clientProductCode" id="clientProductCode" ng-model="productSearch.clientProductCode"   /> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="systemProductCode">System Product Code: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+                                            <input type="text" name="systemProductCode" id="systemProductCode" ng-model="productSearch.systemProductCode"   /> 
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="createdBy">Created By: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+                                            <select name="createdBy" id="createdBy"  kendo-drop-down-list k-options="productSearchCreatedBy" k-ng-model="selectedProductSearchCreatedBy" ng-model="productSearch.createdBy" k-value-primitive="false"></select> 
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="specificationStatus">Specification Status: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <!--<select name="specificationStatus" id="specificationStatus"  kendo-multi-select k-options="Language" k-ng-model="selectedSpecificationStatus" ng-model="productSearch.specificationStatus" k-value-primitive="false"></select>--> 
+                                            <select name="specificationStatus" id="specificationStatus"  kendo-drop-down-list k-options="productSearchSpecificationStatus" k-ng-model="selectedProductSearchSpecificationStatus" ng-model="productSearch.specificationStatus" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="specificationType">Specification Type: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+
+                                            <select name="specificationType" id="specificationType"  kendo-drop-down-list k-options="productSearchSpecificationType" k-ng-model="selectedProductSearchSpecificationType" ng-model="productSearch.specificationType" k-value-primitive="false"></select> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="specificationOwner">Specification Owner: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+                                            <input name="specificationOwner" class="dropdownList" id="specificationOwner" ng-model="productSearch.specificationOwner" >
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="brand">Brand: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <select name="brand" id="brand"  kendo-drop-down-list k-options="productSearchBrand" k-ng-model="selectedProductSearchBrand" ng-model="productSearch.brand" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="supplierName">Supplier Name: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <select name="supplierName" id="supplierName"  kendo-drop-down-list k-options="productSearchSupplierName" k-ng-model="selectedProductSearchSupplierName" ng-model="productSearch.supplierName" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="supplierCode">Supplier Code: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+                                            <input type="text" name="supplierCode" id="supplierCode" readonly ng-model="productSearch.supplierCode"   /> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="siteName">Site Name: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <select name="siteName" id="siteName"  kendo-drop-down-list k-options="productSearchSiteName" k-ng-model="selectedProductSearchSiteName" ng-model="productSearch.siteName" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="siteCode">Site Code: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+                                            <input type="text" name="siteCode" id="siteCode" ng-model="productSearch.siteCode"   /> 
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="commercialStatus">Commercial Status: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <!--<select name="commercialStatus" id="commercialStatus"  kendo-multi-select k-options="Language" k-ng-model="selectedCommercialStatus" ng-model="productSearch.commercialStatus" k-value-primitive="false"></select>--> 
+                                            <select name="commercialStatus" id="commercialStatus"  kendo-drop-down-list k-options="productSearchCommercialStatus" k-ng-model="selectedProductSearchCommercialStatus" ng-model="productSearch.commercialStatus" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="businessName">Business Name: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <select name="businessName" id="businessName"  kendo-drop-down-list k-options="productSearchBusinessName" k-ng-model="selectedProductSearchBusinessName" ng-model="productSearch.businessName" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-3 col-md-4 col-sm-4">
+                                    <div class="row vertical-align">
+                                        <div class="col-lg-6 col-md-6 col-sm-6 text-right padding5">
+
+                                            <label class="searchlabel" for="category">Category: </label>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6 paddingLR5">
+
+
+                                            <select name="category" id="category"  kendo-drop-down-list k-options="productSearchCategory" k-ng-model="selectedProductSearchCategory" ng-model="productSearch.category" k-value-primitive="false"></select> 
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row clearFix">
+                                    <div class="col-lg-6 col-md-6 col-sm-6">
+                                        <div class="row vertical-align padding5">
+                                            <div class="col-lg-3 col-md-4 col-sm-4 text-right padding5">
+
+                                                <label class="searchlabel" for="category">Display Products in: </label>
+                                            </div>
+                                            <div class="col-lg-9 col-md-8 col-sm-8 padding5">
+                                                <label class="searchlabel padding5">
+                                                    <input type="radio" ng-model="productSearch.categoryType" value="myCategory">
+                                                    My Categories
+                                                </label>
+                                                <label class="searchlabel padding5">
+                                                    <input type="radio" ng-model="productSearch.categoryType" value="allCategory">
+                                                    All Categories
+                                                </label>
+
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-2 col-md-0 col-sm-0"></div>
+                                    <div class="col-lg-4 col-md-6 col-sm-6 text-right">
+                                        <div class="row vertical-align padding5">
+                                            <div class="col-lg-2 col-md-2 col-sm-2 padding5"></div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 padding5">
+                                                <a class="anchorLink" href="" ng-click="resetForm();">Reset</a>
+                                            </div>
+                                            <div class="col-lg-4 col-md-4 col-sm-4 padding5">
+                                                <button id="btn_addnewSpec" ng-click="saveSearchProduct()" class="k-primary btn_primary kendoBtn">Save Search</button>    
+                                            </div>
+                                            <div class="col-lg-3 col-md-3 col-sm-3 padding5">
+                                                <button id="btn_addnewSpec" ng-click="searchProduct()" class="k-primary btn_primary kendoBtn">Search</button>  
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </form>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <br/>
+            <div class="productsearchResults">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 paddingLR5">
+                        <p id="searchResultCount">Search Results - <span id="resultCount"></span></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 paddingLR5" id="noResultsFound">
+                        <div id="kendoGrid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+          <div id="savedSearchProductDialog">         
+        </div>
+        
+        
+    </div>
+
+</div>

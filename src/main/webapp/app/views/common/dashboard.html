@@ -1,0 +1,140 @@
+<link href="css/dashboard.css" rel="stylesheet" type="text/css"/>
+<div ng-controller="dashboardDataCtrl">
+    <div class="panel-group portlet-group row clear-margin padding10">
+        <div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+            <div class="panel panel-default">
+                <div class="panel-heading row clear-margin">
+                	<span class="icon"><img src="images/portleticon-action.png" alt=""></span>
+                    <span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Actions</span>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+                        <a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+                        <a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+                        <a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <ul class="list-unstyled">
+                        <li ng-repeat="innerloop in dashboardData.myActions | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+                    </ul>
+                    <a href="javascript:void(0);" class="text-right view_all">View All</a>
+                </div>
+            </div>
+        </div>
+		<div class="portlet col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-dashboard.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Dashboard</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					Chart
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-activityHist.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Activity history</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li ng-repeat="innerloop in dashboardData.myActivityHistory | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-activityHist.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Messages</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li ng-repeat="innerloop in dashboardData.myMessages | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-messages.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Favourites</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li ng-repeat="innerloop in dashboardData.myFavourites | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-queries.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">Queries</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li ng-repeat="innerloop in dashboardData.myQueries | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-3 col-md-3 col-lg-3">
+			<div class="panel panel-default">
+				
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="panel panel-default">
+				<div class="panel-heading row clear-margin">
+					<span class="icon"><img src="images/portleticon-news.png" alt=""></span>
+					<span class="col-xs-7 col-sm-7 col-md-7 col-lg-8 col-xs-offset-2 col-sm-offset-2 col-md-offset-2 col-lg-offset-2 clear-padding">News</span>
+					<div class="col-xs-3 col-sm-3 col-md-3 col-lg-2 clear-padding action_icons text-right">
+						<a href=""><span class="glyphicon glyphicon-pushpin" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+						<a href=""><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+					</div>
+				</div>
+				<div class="panel-body">
+					<ul class="list-unstyled">
+						<li ng-repeat="innerloop in dashboardData.myQueries | limitTo: 3" class="list-group-item"><a href={{innerloop.url}}>{{innerloop.link}}</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="portlet col-xs-12 col-sm-6 col-md-6 col-lg-6">
+			<div class="panel panel-default">
+				
+			</div>
+		</div>
+    </div>
+</div>

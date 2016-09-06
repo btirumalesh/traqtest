@@ -1,0 +1,180 @@
+<div ng-controller="productHeaderViewCtrl" class="productHeader">
+    <!--button div-->
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4 text-right">
+            <button style="margin-right: 5px;" id="btn_sendInvitations" ng-click="sendInvitations()" class="k-primary btn_primary kendoBtn">Send Invitations</button>
+            <button id="btn_version" ng-click="sendVersion()" class="k-primary btn_primary kendoBtn">Save Version</button>
+        </div>
+    </div> 
+    <!--product header data -->
+    <div class="row vertical-align" id="productHeader">
+        <div class="col-md-3 vertical-align">
+            <i class="fa fa-angle-up" aria-hidden="true" style="padding-left: 10px;font-size: 28px;"></i>
+            <input type="text" name="userRole" ng-model="productClientHeader.productRole" style="padding-left: 7px;font-size: 16px;border:none;background: none;" />
+        </div>
+        <div class="col-md-6">
+            <div class="col-md-4">            
+            </div>
+            <div class="col-md-4">
+                <input type="text" name="productHeader" id="headerRole" ng-model="productClientHeader.productName" />
+            </div>
+            <div class="col-md-4">
+            </div>
+        </div>
+        <div class="col-md-3 text-right">
+            <input type="text" name="productStatus" ng-model="productClientHeader.productStatus" style="text-decoration: underline;border:none;background: none;" />
+        </div>      
+    </div>
+    <!--body content-->
+    <div class="row silverBg" id="productHeaderDetails">
+        <!--Row 1 -->
+        <div class="row paddingTB5">
+            <div class="col-md-4">
+                <div class="col-md-6 text-right">
+                    <label>Client Product Code : </label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="headerClientPrdCode" ng-model="productClientHeader.headerClientPrdCode" style="border:none;background: none;" />
+                </div>              
+            </div>
+            <div class="col-md-3">
+                <div class="col-md-12" style="margin-left: 56px;">
+                <label>Suppliers :</label>
+                <input type="text" name="productHeaderSupplier" ng-model="productClientHeader.productHeaderSupplier" style="border:none;background: none;" />
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="col-md-8 text-right">
+                    <label>product System Reference :</label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="productHeaderSysRef" ng-model="productClientHeader.productHeaderSysRef" style="border:none;background: none;" />
+                </div>  
+            </div>
+        </div>
+        <!--Row 2 -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="col-md-6 text-right">
+                    <label>Business Name : </label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="productHeaderBusinessName" ng-model="productClientHeader.productHeaderBusinessName" style="border:none;background: none;" />
+                </div>
+            </div>
+            <div class="col-md-3">
+<!--                 <div class="col-md-6 text-right">
+                    <label>Business Name : </label>
+                </div>
+                <div class="col-md-6">
+                    <input type="text" name="productHeaderBusinessName" ng-model="productClientHeader.productHeaderBusinessName" style="border:none;background: none;" />
+                </div>-->
+            </div>
+            <div class="col-md-5">
+                <div class="col-md-8 text-right">
+                    <label>Commercial Status : </label>
+                </div>
+                <div class="col-md-4">
+                    <input type="text" name="productHeaderComStatus" ng-model="productClientHeader.productHeaderComStatus" style="border:none;background: none;" />   
+                </div>  
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--        <div class="col-md-2 text-right">
+            <button id="btn_sendInvitations" ng-click="sendInvitations()" class="k-primary btn_primary kendoBtn">Send Invitations</button>
+        </div>
+        <div class="col-md-2 text-right">
+            <button id="btn_version" ng-click="sendVersion()" class="k-primary btn_primary kendoBtn">Save Version</button>
+        </div>-->
+
+
+
+<!--    <div class="row vertical-align">
+        <div class="col-lg-9 col-sm-9 col-md-9">          
+        </div>
+        <div class="col-md-3 vertical-align" id="headerBtn">
+            <div class="col-lg-2 col-md-2 col-sm-2">
+                <button id="btn_sendInvitations" ng-click="sendInvitations()" class="k-primary btn_primary kendoBtn">Send Invitations</button>
+            </div>
+            <div class="col-lg-1 col-md-1 col-sm-1">
+                <button id="btn_version" ng-click="sendVersion()" class="k-primary btn_primary kendoBtn">Save Version</button>
+            </div>
+        </div>
+    </div>
+    <div class="row vertical-align" id="productHeader">  
+        <div class="col-lg-4 col-sm-4 vertical-align">
+            <div class="col-lg-1 col-sm-1 text-center"> <i class="fa fa-angle-up" aria-hidden="true" style="font-size: 28px; padding-top: 5px;"></i> </div>
+            <div class="col-lg-9 col-sm-9" style="font-size: 16px;">
+                <input type="text" name="userRole" value="Primary Specification" ng-model="productRole" style="border:none;background: none;" />
+            </div>
+        </div>
+        <div class="col-lg-5 col-sm-5 " style="font-size: 18px;text-align: center; font-weight: bold;">
+            <input type="text" name="productHeader" value="Pancake" ng-model="productName" style="border:none;background: none;" />
+        </div>
+        <div class="col-lg-3 col-sm-3 vertical-align">
+            <div class="col-lg-10 col-sm-10 text-right" style="font-size: 16px;">
+                <input type="text" name="productStatus" value="Client Draft - 0.02" ng-model="productStatus" style="border:none;background: none;" />
+                <a ng-model="productStatus" ng-click="GetNextItem()">{{ productStatus }}</a>
+            </div>
+            <div class="col-lg-1 col-sm-1 text-center" style="font-size: 16px;">
+                <span id="packCopy" style="display: none;"><input type="text" name="productPC" value="PC" ng-model="productPC" style="border:none;background: none;" /></span>
+            </div>
+            <div class="col-lg-1 col-sm-1">
+                <span id="lock" style="display: none;"><i class="fa fa-unlock-alt" aria-hidden="true" style="font-size: 22px; padding-top: 5px;"></i></span>
+            </div>
+        </div>
+    </div>
+    <div class="row silverBg" id="productHeaderDetails">
+        <div class="row vertical-align paddingTB5">
+            <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-6 col-sm-6 text-right">
+                    <label>Client Product Code : </label>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <input type="text" name="headerClientPrdCode" value="P00001165" ng-model="headerClientPrdCode" style="border:none;background: none;" />
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-3 col-sm-3">
+                    <label>Suppliers :</label>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <input type="text" name="productHeaderSupplier" value="None" ng-model="productHeaderSupplier" style="border:none;background: none;" />
+                </div>
+            </div>
+            <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-6 col-sm-7">
+                    <label>product System Reference :</label>
+                </div>
+                <div class="col-lg-6 col-sm-5">
+                    <input type="text" name="productHeaderSysRef" value="PS-4084-123456" ng-model="productHeaderSysRef" style="border:none;background: none;" />
+                </div>     
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-sm-4">
+                <div class="col-lg-6 col-sm-6 text-right">
+                    <label>Business Name : </label>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <input type="text" name="productHeaderBusinessName" value="Sweet Treats Cake Division" ng-model="productHeaderBusinessName" style="border:none;background: none;" />   
+                </div>
+
+            </div>
+            <div class="col-lg-4 col-sm-4"></div>
+            <div class="col-lg-4 col-sm-4 text-right">
+                <div class="col-lg-6 col-sm-6">
+                    <label>Commercial Status : </label>
+                </div>
+                <div class="col-lg-4 col-sm-4">
+                    <input type="text" name="productHeaderComStatus" value="Not Active" ng-model="productHeaderComStatus" style="border:none;background: none;" />   
+                </div>
+
+            </div>
+        </div>
+    </div>  -->
